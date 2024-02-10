@@ -27,7 +27,7 @@ import ParagraphBlock from "$lib/blocks/text/ParagraphBlock.svelte";
 
 // Import Editor Components
 import Canvas from "$lib/components/editor/canvas.svelte";
-import PropertiesPanel from "$lib/components/editor/PropertiesPanel.svelte";
+import PropertiesPanel from "$lib/components/editor/propertiesPanel.svelte";
 import Toolbar from "$lib/components/editor/toolbar.svelte";
 
 export { Modal, CreateProject, ElementBase, DivBlock, FooterBlock, HeaderBlock, MainBlock, ForEachBlock, ImageBlock, VideoBlock, Heading1Block, Heading2Block, Heading3Block, Heading4Block, Heading5Block, Heading6Block, ParagraphBlock, Canvas, PropertiesPanel, Toolbar};

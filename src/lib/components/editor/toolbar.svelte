@@ -7,6 +7,10 @@
     ];
   
     // Function to initiate the drag operation
+    /**
+   * @param {DragEvent & { currentTarget: EventTarget & HTMLDivElement; }} event
+   * @param {{ id: string; label: string; type: string; }} element
+   */
     function handleDragStart(event, element) {
       event.dataTransfer.setData('application/json', JSON.stringify(element));
     }
