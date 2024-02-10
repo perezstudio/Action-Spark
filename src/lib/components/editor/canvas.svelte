@@ -1,8 +1,10 @@
 <script>
     import { onMount } from 'svelte';
     import { dndzone } from 'svelte-dnd-action';
+    import { selectedElement } from './stores.js'; // Import the selectedElement store
     import ElementBase from './ElementBase.svelte';
     import ComponentRegistry from './ComponentRegistry.js';
+    import PropertiesPanel from './PropertiesPanel.svelte';
 
     let elements = []; // Array to hold elements added to the canvas
   
@@ -18,7 +20,7 @@
   
     // Optional: Function to handle element selection, moving, etc.
     function selectElement(elementId) {
-      // Implement selection logic
+        selectedElement.set(element);
     }
 
     function handleDrop(event) {
@@ -38,7 +40,7 @@
   <div class="editor-canvas" use:dndzone="{{ items: elements, flipDurationMs: 300 }}" on:click="{selectElement}" on:drop|preventDefault={handleDrop}
   on:dragover|preventDefault={handleDragOver}>
     {#each elements as element (element.id)}
-        <svelte:component this={ComponentRegistry[element.type]} {...element}/>
+        <svelte:component on:click={() => selectElement(element)} this={ComponentRegistry[element.type]} {...element}/>
     {/each}
   </div>
   
