@@ -1,13 +1,19 @@
 <script>
     import { onMount } from 'svelte';
     import { dndzone } from 'svelte-dnd-action';
-    
+    import ElementBase from './ElementBase.svelte';
+    import ComponentRegistry from './ComponentRegistry.js';
 
     let elements = []; // Array to hold elements added to the canvas
   
     // Function to handle adding new elements (e.g., via toolbar actions)
     function addElement(element) {
-      elements = [...elements, element];
+        const newElement = {
+            id: Date.now(), // Simple unique ID
+            type: elementType,
+            // Default content based on type
+        };
+        elements = [...elements, newElement];
     }
   
     // Optional: Function to handle element selection, moving, etc.
@@ -31,12 +37,8 @@
   
   <div class="editor-canvas" use:dndzone="{{ items: elements, flipDurationMs: 300 }}" on:click="{selectElement}" on:drop|preventDefault={handleDrop}
   on:dragover|preventDefault={handleDragOver}>
-    {#each elements as element}
-        {#if element.type === 'text'}
-            <TextBlock {element} />
-        {:else if element.type === 'image'}
-            <ImageComponent {element} />
-        {/if}
+    {#each elements as element (element.id)}
+        <svelte:component this={ComponentRegistry[element.type]} {...element}/>
     {/each}
   </div>
   
