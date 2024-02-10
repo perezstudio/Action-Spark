@@ -1,6 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import { dndzone } from 'svelte-dnd-action';
+    
 
     let elements = []; // Array to hold elements added to the canvas
   
