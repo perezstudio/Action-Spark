@@ -1,10 +1,10 @@
 <script>
     import { onMount } from 'svelte';
     import { dndzone } from 'svelte-dnd-action';
-    import { selectedElement } from './stores.js'; // Import the selectedElement store
-    import ElementBase from './ElementBase.svelte';
-    import ComponentRegistry from './ComponentRegistry.js';
-    import PropertiesPanel from './PropertiesPanel.svelte';
+    import { selectedElement } from '$lib/stores/stores.js'; // Import the selectedElement store
+    import ElementBase from '$lib/blocks/ElementBase.svelte';
+    import ComponentRegistry from '$lib/blocks/ComponentRegistry.js';
+    import PropertiesPanel from '$lib/components/editor/propertiesPanel.svelte';
 
     let elements = []; // Array to hold elements added to the canvas
   

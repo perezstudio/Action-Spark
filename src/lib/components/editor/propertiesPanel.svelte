@@ -1,5 +1,5 @@
 <script>
-    import { selectedElement } from './stores.js';
+    import { selectedElement } from '$lib/stores/stores.js';
   
     // Subscribe to the selectedElement store
     $: selected = $selectedElement;

@@ -1,6 +1,6 @@
 <!-- VideoBlock.svelte -->
 <script>
-    import ElementBase from "$lib/ElementBase.svelte";
+    import ElementBase from "../ElementBase.svelte";
     export let customClasses = ""; // For additional styling
     export let errorMessage = ""; // For the message shown if video format isn't supported
     export let controls = true;
@@ -8,7 +8,7 @@
     export let type = "video/mp4";
 </script>
 
-<ElementBase customClasses={`${customClasses}`}>
+<ElementBase id="video" customClasses={`${customClasses}`}>
     <!-- svelte-ignore a11y-media-has-caption -->
     <video controls>
         <source src={src} type={type}>

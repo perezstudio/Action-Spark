@@ -5,7 +5,7 @@
   export let content = ""; // For the heading content
 </script>
 
-<ElementBase customClasses={`${customClasses}`}>
+<ElementBase id="heading1" customClasses={`${customClasses}`}>
   <h1>
     {content}
   </h1>
