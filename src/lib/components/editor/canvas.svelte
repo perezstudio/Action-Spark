@@ -37,7 +37,7 @@
     });
   </script>
   
-  <div class="editor-canvas" use:dndzone="{{ items: elements, flipDurationMs: 300 }}" on:click="{selectElement}" on:drop|preventDefault={handleDrop}
+  <div class="editor-canvas bg-slate-200 " use:dndzone="{{ items: elements, flipDurationMs: 300 }}" on:click="{selectElement}" on:drop|preventDefault={handleDrop}
   on:dragover|preventDefault={handleDragOver}>
     {#each elements as element (element.id)}
         <svelte:component on:click={() => selectElement(element)} this={ComponentRegistry[element.type]} {...element}/>
@@ -48,9 +48,9 @@
     .editor-canvas {
       min-height: 500px; /* Minimum height */
       width: 100%; /* Full width */
+      height: 100vh; /* Full height */
       border: 2px dashed #ccc; /* Dashed border to indicate area */
       position: relative; /* For absolute positioning of child elements */
-      overflow: auto; /* Scroll if content overflows */
     }
     .draggable-element {
       position: absolute; /* Positioned absolutely within the canvas */
